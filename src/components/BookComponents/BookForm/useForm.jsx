@@ -41,7 +41,8 @@ const Fields = {
 
 const useForm = action => {
   const params = useParams();
-  const [bookId, setBookId] = useState(params.id);
+  const bookId = params.id;
+
   const [selectedFile, setSelectedFile] = useState();
   const [isAddCompleted, setIsAddCompleted] = useState(false);
   const [isDisabledReadTimes, setIsDisabledReadTimes] = useState(true);
