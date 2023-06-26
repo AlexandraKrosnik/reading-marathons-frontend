@@ -57,12 +57,7 @@ const useForm = action => {
   const isChange = action === 'change';
   const localStorageItem = 'BookModal';
   const [addBook, { isLoading }] = useAddBookMutation();
-  const {
-    data,
-    isLoading: isGetBookLoading,
-    isError,
-    isSuccess,
-  } = useGetBookByIdQuery(bookId, {
+  const { data } = useGetBookByIdQuery(bookId, {
     skip: !bookId,
   });
   const [updateBook] = useUpdateBookMutation();

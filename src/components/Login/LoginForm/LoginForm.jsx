@@ -84,7 +84,7 @@ const LoginForm = () => {
           {({ isValid, touched }) => {
             return (
               <StyledForm name="LoginForm">
-                <GoogleButton href="http://localhost:3001/api/auth/google">
+                <GoogleButton href="https://reading-marathons-backend.onrender.com/api/auth/google">
                   <FcGoogle />
                   Google
                 </GoogleButton>

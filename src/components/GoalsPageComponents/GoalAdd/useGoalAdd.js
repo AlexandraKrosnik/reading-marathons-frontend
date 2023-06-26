@@ -84,9 +84,13 @@ const useGoalAdd = () => {
 
   useEffect(() => {
     if (data) {
+      if (data.books.length === 0) {
+        openNotificationWithIcon('warning', 'Спочатку додайте нові книжки!');
+        navigate({ pathname: `/goals` });
+      }
       setBooks(data.books);
     }
-  }, [data]);
+  }, [data, navigate]);
 
   useEffect(() => {
     const startDate = new Date(start);

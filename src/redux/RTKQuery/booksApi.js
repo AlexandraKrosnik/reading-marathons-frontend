@@ -4,7 +4,7 @@ import { axiosBaseQuery } from '../axiosBaseQuery';
 export const booksApi = createApi({
   reducerPath: 'booksRTK',
   baseQuery: axiosBaseQuery({
-    baseUrl: 'http://localhost:3001/api',
+    baseUrl: 'https://reading-marathons-backend.onrender.com/api',
   }),
   tagTypes: ['Books', 'BookById', 'Trainings', 'TrainingById'],
   endpoints: builder => ({
