@@ -79,7 +79,7 @@ const useGoalById = () => {
     }
   };
 
-  const getBooksQuantity = () => data.training.statistics.length + 1;
+  const getBooksQuantity = () => data.training.statistics.length;
 
   const getLeftBooksQuantity = () => {
     if (data.training.status === 'planned') {

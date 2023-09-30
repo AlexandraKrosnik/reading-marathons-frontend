@@ -254,6 +254,7 @@ const useGoalAdd = () => {
   };
 
   const numberOfBooks = () => {
+    console.log(booksForTable.length);
     return booksForTable.length;
   };
 
