@@ -75,7 +75,7 @@ export const GoogleButton = styled.a`
   gap: 24px;
   margin-bottom: 28px;
   padding: 8px 14px;
-  width: 150px;
+  width: 230px;
   height: 40px;
   outline: none;
   border: none;

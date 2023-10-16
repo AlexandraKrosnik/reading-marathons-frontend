@@ -11,7 +11,6 @@ import { booksApi } from 'redux/RTKQuery/booksApi';
 
 import {
   FormWrapper,
-  Overlay,
   StyledForm,
   FieldWrapper,
   FieldName,
@@ -21,7 +20,12 @@ import {
   GoogleButton,
   SubmitButton,
   StyledLink,
-} from './LoginForm.styled';
+  FormBottomStyled,
+  FormBottomImage,
+  LinkWrapper,
+  IsRegistredParagraph,
+  LoginTextStyled,
+} from '../AuthenticationComponent.styled';
 
 const validationSchema = yup.object().shape({
   email: yup
@@ -75,7 +79,6 @@ const LoginForm = () => {
   return (
     <>
       <FormWrapper>
-        <Overlay />
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -84,9 +87,10 @@ const LoginForm = () => {
           {({ isValid, touched }) => {
             return (
               <StyledForm name="LoginForm">
+                <LoginTextStyled>Вхід</LoginTextStyled>
                 <GoogleButton href="https://reading-marathons-backend.onrender.com/api/auth/google">
                   <FcGoogle />
-                  Google
+                  Війти через Google
                 </GoogleButton>
 
                 <FieldWrapper>
@@ -124,11 +128,19 @@ const LoginForm = () => {
                   Увійти
                   {isPending && <PulseLoader color="white" size="4px" />}
                 </SubmitButton>
-                <StyledLink to="/register">Реєстрація</StyledLink>
+                <LinkWrapper>
+                  <IsRegistredParagraph>
+                    Ви ще не зареєстровані?{' '}
+                  </IsRegistredParagraph>
+                  <StyledLink to="/registration">Реєстрація</StyledLink>
+                </LinkWrapper>
               </StyledForm>
             );
           }}
         </Formik>
+        <FormBottomStyled>
+          <FormBottomImage data-status="login" />
+        </FormBottomStyled>
       </FormWrapper>
     </>
   );

@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Form, Field, ErrorMessage } from 'formik';
 
-import device from 'styles/device';
+import { device, theme } from 'styles';
 
-import mobileBackground from 'images/auth-background/signup-background-mob.jpg';
-import tabletBackground from 'images/auth-background/signup-background-tablet.jpg';
-import desktopBackground from 'images/auth-background/signup-background-desktop.jpg';
+import Subtract from 'images/authPng/Subtract.png';
+import readingGirlAuth from 'images/svg/readingGirlAuthForm.svg';
+import readingFamily from 'images/authPng/readingFamily.png';
 
 export const FormWrapper = styled.div`
   position: relative;
@@ -15,33 +15,28 @@ export const FormWrapper = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-content: center;
+
   align-items: center;
 
   background-repeat: no-repeat;
   background-position: center;
+  background-color: ${theme.colors.white};
 
-  @media ${device.mobile} {
-    background-image: url(${mobileBackground});
+  padding-top: 20px;
+  @media (max-width: ${p => p.theme.breakpoints.tablet}) {
+    height: calc(100vh - 100px);
+    min-height: 700px;
+    max-height: 780px;
   }
 
   @media ${device.tablet} {
-    padding: 65px;
-    background-image: url(${tabletBackground});
+    padding-top: 25px;
+    width: 400px;
   }
   @media ${device.desktop} {
-    padding: 91px 75px;
-    background-image: url(${desktopBackground});
+    padding-top: 50px;
   }
-`;
-
-export const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: #091e3fcc;
 `;
 
 export const StyledForm = styled(Form)`
@@ -51,39 +46,37 @@ export const StyledForm = styled(Form)`
   flex-direction: column;
   justify-content: center;
 
-  @media ${device.mobile} {
-    padding: 32px 20px;
-    width: 320px;
-  }
+  padding: 32px 20px;
+  width: 320px;
 
   @media ${device.tablet} {
-    padding: 40px;
     width: 400px;
     background-color: ${p => p.theme.colors.white};
   }
 
   @media ${device.desktop} {
+    padding: 30px 45px 20px;
     width: 400px;
   }
 `;
 
 export const GoogleButton = styled.a`
-  align-self: center;
   display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 28px;
   padding: 8px 14px;
-  width: 150px;
+  width: 100%;
   height: 40px;
-  outline: none;
-  border: none;
-  color: ${p => p.theme.colors.googleFontColor};
+  border-radius: 6px;
   font-family: 'Roboto';
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
-  background-color: ${p => p.theme.colors.inputBackground};
-  box-shadow: ${p => p.theme.shadows.hero};
+  color: ${p => p.theme.colors.googleFontColor};
+  background-color: ${p => p.theme.colors.white};
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   cursor: pointer;
   transition: ${p => p.theme.transition.transitionFunction};
 
@@ -93,28 +86,22 @@ export const GoogleButton = styled.a`
     background-color: ${p => p.theme.colors.modalBackground};
     color: ${p => p.theme.colors.googleFontColor};
   }
+  @media ${device.tablet} {
+    font-size: 16px;
+  }
 `;
 
 export const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-
-  @media ${device.mobile} {
-  }
-
-  @media ${device.tablet} {
-  }
-
-  @media ${device.desktop} {
-  }
 `;
 
 export const FieldName = styled.label`
   margin-bottom: 8px;
   font-size: 14px;
   line-height: 1.214;
-  color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.colors.secondaryFontColor};
 
   @media ${device.mobile} {
     font-weight: 600;
@@ -136,10 +123,9 @@ export const AccentedMark = styled.span`
 `;
 
 export const StyledField = styled(Field)`
-  padding: 8px 12px;
-  outline: none;
-  border: 1px solid ${p => p.theme.colors.inputBackground};
-  box-shadow: ${p => p.theme.shadows.input};
+  padding: 8px 8px 8px 16px;
+  border-radius: 6px;
+  border: 0.5px solid ${p => p.theme.colors.inputBackground};
   background-color: ${p => p.theme.colors.inputBackground};
   transition: ${p => p.theme.transition.transitionFunction};
 
@@ -160,9 +146,9 @@ export const SubmitButton = styled.button`
   justify-content: center;
   align-items: center;
   gap: 10px;
-  height: 60px;
-  outline: none;
+  padding: 15px 24px;
   border: none;
+  border-radius: 6px;
   background-color: ${p => p.theme.colors.accentColor};
   color: ${p => p.theme.colors.white};
   font-weight: 600;
@@ -197,4 +183,32 @@ export const StyledLink = styled(Link)`
 
 export const IsRegistredParagraph = styled.p`
   color: ${p => p.theme.colors.secondaryFontColor};
+`;
+export const FormBottomStyled = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 263px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url(${Subtract});
+  z-index: 100;
+`;
+
+export const FormBottomImage = styled.div`
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url(${readingFamily});
+  /* background-image: url(${readingGirlAuth}); */
+
+  width: 200px;
+  height: 150px;
+
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
