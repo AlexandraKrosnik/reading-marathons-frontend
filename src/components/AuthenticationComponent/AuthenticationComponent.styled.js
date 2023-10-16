@@ -8,7 +8,6 @@ import Subtract from 'images/authPng/Subtract.png';
 import readingFamily from 'images/authPng/readingFamily.png';
 import books from 'images/authPng/books.png';
 
-import mobileBackground from 'images/auth-background/signup-background-mob.jpg';
 import tabletBackground from 'images/auth-background/signup-background-tablet.jpg';
 import desktopBackground from 'images/auth-background/signup-background-desktop.jpg';
 
@@ -53,15 +52,10 @@ export const FormWrapper = styled.div`
   background-position: center;
   background-color: ${theme.colors.white};
 
-  /* padding-top: 20px; */
   height: 100%;
 
   @media ${device.tablet} {
-    /* padding-top: 25px; */
     width: 400px;
-  }
-  @media ${device.desktop} {
-    /* padding-top: 50px; */
   }
 `;
 
@@ -254,10 +248,6 @@ export const AboutAppWrapper = styled.div`
   display: flex;
   justify-content: center;
 
-  @media ${device.mobile} {
-    background-image: url(${mobileBackground}) no-repeat;
-  }
-
   @media ${device.tablet} {
     width: 676px;
     background-image: url(${tabletBackground});
@@ -291,7 +281,7 @@ export const TitleTextStyled = styled.h2`
 export const MainTextStyled = styled.div`
   display: flex;
   flex-direction: column;
-  /* padding: 0 50px; */
+
   @media ${device.tablet} {
     padding: 55px 50px 0px;
   }
