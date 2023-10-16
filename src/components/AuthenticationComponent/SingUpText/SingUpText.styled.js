@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 import device from 'styles/device';
-
 import listStyleImage from 'images/svg/list-style-image.svg';
 
 export const AboutAppText = styled.div`
@@ -10,7 +8,6 @@ export const AboutAppText = styled.div`
   flex-direction: column;
   z-index: 100;
   background-color: transparent;
-  /* padding: 0 50px; */
   @media ${device.tablet} {
     padding: 55px 50px 0px;
   }
