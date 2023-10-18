@@ -71,23 +71,7 @@ export const booksApi = createApi({
     deleteTrainingById: builder.mutation({
       query: id => ({ url: `/trainings/${id}`, method: 'DELETE' }),
       invalidatesTags: ['TrainingById'],
-    }),
-    // getStatisticsById: builder.query({
-    //   query: id => ({ url: `/statistics/${id}`, method: 'GET' }),
-    //   providesTags: ['Statistics', 'Trainings'],
-    // }),
-    // updateStatisticsById: builder.mutation({
-    //   query: params => ({
-    //     url: `/statistics/${params.id}`,
-    //     method: 'PATCH',
-    //     data: params.data,
-    //   }),
-    //   invalidatesTags: ['Books', 'BookById', 'Trainings', 'Statistics'],
-    // }),
-    // deleteStatisticsById: builder.mutation({
-    //   query: id => ({ url: `/statistics/${id}`, method: 'DELETE' }),
-    //   invalidatesTags: ['Statistics'],
-    // }),
+    }),  
   }),
 });
 
@@ -104,54 +88,5 @@ export const {
   useUpdateTrainingByIdMutation,
   useUpdateStatisticByIdMutation,
   useDeleteTrainingByIdMutation,
-  // useGetStatisticsByIdQuery,
-  // useUpdateStatisticsByIdMutation,
-  // useDeleteStatisticsByIdMutation,
 } = booksApi;
 
-// ------- Приклад використання хуків
-// const { data: trainings } = useGetTrainingQuery();
-// console.log('trainings:', trainings);
-
-// const statisticsId = trainings?.data.training[0].statistics;
-
-// console.log('statisticsId', statisticsId);
-
-// const { data: statistics } = useGetStatisticsByIdQuery(statisticsId);
-
-// console.log('statistics:', statistics);
-
-// const [addTraining, { isLoading }] =
-//   useAddTrainingMutation();
-
-// const [updateStatisticsById] = useUpdateStatisticsByIdMutation();
-
-// const dataValue = {
-//   start: '01-10-2022 13:13:13',
-//   finish: '11-10-2022 13:13:13',
-//   books: ['633b46275953dc5cd9e39ffa'],
-// };
-
-// const statisticsValue = {
-//   date: '12-10-2022 13:13:13',
-//   pages: 25,
-// };
-
-// ------- Приклад використання мутацій
-// <Button
-//   onClick={() => {
-//     addTraining(dataValue);
-//   }}
-// >
-//   add
-// </Button>
-// <Button
-//   onClick={() => {
-//     updateStatisticsById({
-//       id: statisticsId,
-//       data: { ...statisticsValue },
-//     });
-//   }}
-// >
-//   add stat
-// </Button>
